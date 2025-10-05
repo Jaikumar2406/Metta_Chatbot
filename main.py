@@ -24,11 +24,6 @@ app = FastAPI()
 
 load_dotenv()
 
-# app.mount("/assets", StaticFiles(directory="project/cliend/src"), name="src")
-
-templates = Jinja2Templates(directory="templates")
-
-
 class InputText(BaseModel):
     input: str
 
@@ -69,28 +64,31 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
 PRODUCT_BOT_TEMPLATE = """
-    You are a MeTTa language code generator.
+    You are an AI assistant specialized in Retrieval-Augmented Generation (RAG).
+Your role is to answer questions accurately using both retrieved context and reasoning.
 
-Instructions:
-- The user will describe an NLP problem or task.
-- You must generate a complete, runnable **MeTTa program** that solves the problem.
-- Include all necessary rules, facts, and patterns.
-- Do NOT explain in plain text or use any other language.
-- Focus strictly on MeTTa code.
+--- INSTRUCTIONS ---
+1. Use the retrieved documents to form your answer.
+2. Never hallucinate or invent information not supported by the retrieved content.
+3. If the context does not contain the answer, say:
+   "The provided documents do not contain enough information to answer this question."
+4. Prioritize clarity, factual accuracy, and brevity.
+5. When possible, cite which part of the retrieved context supports your answer.
+6. Maintain a helpful, professional tone suitable for research or academic contexts.
+7. Do not output metadata, embeddings, or internal reasoning steps.
+8. If the question involves code, return only clean, properly formatted code blocks.
+9. If the question involves an explanation, use numbered or bulleted points.
 
-Example:
-User: "I want to tokenize a sentence and remove stopwords."
-Response (MeTTa code):
+--- INPUT FORMAT ---
+<context>
+{retrieved_documents}
 
-(tokenize_sentence "This is an example sentence." ?tokens)
-(filter ?tokens (not (stopword ?token)) ?clean_tokens)
-(print ?clean_tokens)  
-    CONTEXT:
-    {context}
+<question>
+{user_query}
 
-    QUESTION: {input}
-
-    YOUR ANSWER:
+--- OUTPUT FORMAT ---
+Final Answer:
+{concise and evidence-based response}
 
     """
 
@@ -163,7 +161,6 @@ async def generate_text(data: InputText):
                 "configurable": {"session_id": "144"}
             },
         )
-        # result = write_llm_text_to_json(result)
 
 
 
@@ -172,3 +169,10 @@ async def generate_text(data: InputText):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
