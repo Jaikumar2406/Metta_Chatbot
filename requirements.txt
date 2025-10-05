@@ -6,6 +6,8 @@ langchain-core
 langchain-community
 langchain-groq
 langchain-pinecone
+langchain-huggingface
 pinecone-client
+sentence-transformers
 pydantic
 jinja2
