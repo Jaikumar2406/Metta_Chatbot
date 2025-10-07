@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body {
+  @apply font-sans antialiased text-white bg-black;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom styles */
+.glass-effect {
+  @apply bg-black bg-opacity-20 backdrop-blur-sm border border-white border-opacity-10;
+}
+
+/* 3D card effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.card-3d:hover {
+  transform: translateZ(10px);
+}
+
+/* Input focus styles */
+input:focus, textarea:focus, button:focus {
+  @apply outline-none ring-2 ring-white ring-opacity-20;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-white text-black px-6 py-2 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border border-white px-6 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors;
+}
+
+/* Chat bubble styles */
+.chat-bubble {
+  @apply max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl rounded-lg p-4;
+}
+
+.chat-bubble.user {
+  @apply bg-white text-black ml-auto;
+}
+
+.chat-bubble.ai {
+  @apply bg-gray-800 text-white mr-auto;
+}
