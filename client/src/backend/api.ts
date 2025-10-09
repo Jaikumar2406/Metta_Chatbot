@@ -4,7 +4,7 @@ export interface GenerateResponse {
   }
   
   export async function generateText(input: string): Promise<GenerateResponse> {
-    const res = await fetch("https://metta-chatbot-2.onrender.com", {
+    const res = await fetch("http://localhost:8080/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
