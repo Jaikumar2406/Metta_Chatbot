@@ -21,7 +21,7 @@ It allows users to **ask any question related to MeTTa**, and the system provide
 **Question:**
 ```text
 How to define a simple function in MeTTa?
-
+```
 
 Answer:
 
