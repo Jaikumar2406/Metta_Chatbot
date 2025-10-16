@@ -47,7 +47,7 @@ How to define a simple function in MeTTa?
 
 - Backend: Python, FastAPI, LangChain / RAG pipeline
 - Frontend: React + Tailwind CSS
-- Database: AstraDB 
+- Database: Pinecone 
 
 ## 🧑‍💻 Installation
 🔹 Clone the Repository
