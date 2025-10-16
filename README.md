@@ -1,28 +1,27 @@
-🧠 MeTTa RAG Application
-📘 Overview
+# 🧠 MeTTa RAG Application
 
-This project is a RAG (Retrieval-Augmented Generation) application built using MeTTa documents as the knowledge base.
-It allows users to ask any question related to MeTTa, and the system provides code-only answers in MeTTa language.
+## 📘 Overview
+This project is a **RAG (Retrieval-Augmented Generation)** application built using **MeTTa documents** as the knowledge base.  
+It allows users to **ask any question related to MeTTa**, and the system provides **code-only answers** in the MeTTa language.
 
-⚙️ How It Works
+---
 
-Collected and processed all official MeTTa documentation.
+## ⚙️ How It Works
+- Collected and processed all official **MeTTa documentation**  
+- Used those documents as the **retrieval source** for a RAG pipeline  
+- Integrated a **language model** that understands MeTTa syntax and semantics  
+- When a user asks a question, the app:
+  - Retrieves the most relevant MeTTa docs  
+  - Generates a **code-only answer** without any explanation — just pure MeTTa code
 
-Used those documents as the retrieval source for a RAG pipeline.
+---
 
-Integrated a language model that understands MeTTa syntax and semantics.
+## 💡 Example
 
-When a user asks a question, the app:
-
-Retrieves the most relevant MeTTa docs.
-
-Generates a code-only answer without any explanation — just pure MeTTa code.
-
-💡 Example
-
-Question:
-
+**Question:**
+```text
 How to define a simple function in MeTTa?
+
 
 Answer:
 
@@ -30,15 +29,19 @@ Answer:
 
 🧩 Features
 
-RAG-based contextual MeTTa retrieval
+🧠 RAG-based contextual MeTTa retrieval
 
-MeTTa syntax understanding
+💬 Understands MeTTa syntax and semantics
 
-Code-only responses (no explanations)
+💻 Code-only responses (no explanations)
 
-Full-stack setup (Backend + Frontend)
+🌐 Full-stack setup (Backend + Frontend)
 
-Fast, accurate, and interactive UI
+⚡ Fast, accurate, and interactive user interface
+
+🔍 Efficient document search and retrieval pipeline
+
+🧱 Easily extensible for new datasets or knowledge bases
 
 🧰 Tech Stack
 
