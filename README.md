@@ -23,11 +23,11 @@ It allows users to **ask any question related to MeTTa**, and the system provide
 How to define a simple function in MeTTa?
 ```
 
-Answer:
-
+**Answer:**
+```text
 (= (square $x) (* $x $x))
-
-🧩 Features
+```
+## 🧩 Features
 
 🧠 RAG-based contextual MeTTa retrieval
 
@@ -43,13 +43,13 @@ Answer:
 
 🧱 Easily extensible for new datasets or knowledge bases
 
-🧰 Tech Stack
+## 🧰 Tech Stack
 
 Backend: Python, FastAPI, LangChain / RAG pipeline
 Frontend: React + Tailwind CSS
 Database: AstraDB 
 
-🧑‍💻 Installation
+## 🧑‍💻 Installation
 🔹 Clone the Repository
 git clone https://github.com/Jaikumar2406/Metta_Chatbot.git
 cd Metta_Chatbot
@@ -69,4 +69,4 @@ npm start
 The frontend will start at
 👉 http://localhost:3000
 
-💬 “Ask questions. Get pure MeTTa code.”
+**💬 “Ask questions. Get pure MeTTa code.”**
